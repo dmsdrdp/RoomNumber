@@ -20,7 +20,7 @@ namespace RoomNumber
             Document doc = commandData.Application.ActiveUIDocument.Document;
             List<Room> rooms = FindRooms(doc);
 
-            if (rooms.Count == 0)
+            if (rooms.Count == 0)                               //диалоговое окно
             {
                 TaskDialog.Show("Ошибка", "Не найдены помещения");
                 return Result.Cancelled;
@@ -30,7 +30,7 @@ namespace RoomNumber
 
             return Result.Succeeded;
         }
-        private List<Room> FindRooms(Document doc)              
+        private List<Room> FindRooms(Document doc)              //фильтр помещений
         {
             List<Room> rooms = new FilteredElementCollector(doc)
               .OfClass(typeof(SpatialElement))
